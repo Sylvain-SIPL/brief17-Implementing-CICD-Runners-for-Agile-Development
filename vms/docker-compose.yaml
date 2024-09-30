@@ -1,0 +1,18 @@
+version: '3'
+services:
+# RUNNER
+  gitlab-runner1:
+    image: 'ubuntu:latest'
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./config:/etc/gitlab-runner1
+    restart: unless-stopped
+    command: "tail -f /dev/null"
+
+  gitlab-runner2:
+    image: 'ubuntu:latest'
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./config:/etc/gitlab-runner2
+    restart: unless-stopped
+    command: "tail -f /dev/null"
